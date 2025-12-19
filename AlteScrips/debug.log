@@ -1,0 +1,37 @@
+[2025-12-05 13:51:41] Starting UDP listener on 127.0.0.1:20777
+[2025-12-05 13:54:24] Starting UDP listener on 127.0.0.1:20777
+[2025-12-05 13:57:06] Starting UDP listener on 127.0.0.1:20777
+[2025-12-05 14:00:45] Packet from ('127.0.0.1', 52822): {"CarSpeed": 0.0, "other": {"nested": {"SpeedKmh": 123.45}}}
+[2025-12-05 14:00:45] Wrote sensor value: 0.00
+[2025-12-05 14:00:46] Packet from ('127.0.0.1', 52822): {"CarSpeed": 10.0, "other": {"nested": {"SpeedKmh": 123.45}}}
+[2025-12-05 14:00:46] Wrote sensor value: 10.00
+[2025-12-05 14:00:46] Packet from ('127.0.0.1', 52822): {"CarSpeed": 20.0, "other": {"nested": {"SpeedKmh": 123.45}}}
+[2025-12-05 14:00:46] Wrote sensor value: 20.00
+[2025-12-05 14:00:47] Packet from ('127.0.0.1', 52822): {"CarSpeed": 30.0, "other": {"nested": {"SpeedKmh": 123.45}}}
+[2025-12-05 14:00:47] Wrote sensor value: 30.00
+[2025-12-05 14:00:47] Packet from ('127.0.0.1', 52822): {"CarSpeed": 40.0, "other": {"nested": {"SpeedKmh": 123.45}}}
+[2025-12-05 14:00:47] Wrote sensor value: 40.00
+[2025-12-05 14:00:54] Packet from ('127.0.0.1', 54055): {"CarSpeed": 0.0, "other": {"nested": {"SpeedKmh": 123.45}}}
+[2025-12-05 14:00:54] Wrote sensor value: 0.00
+[2025-12-05 14:00:54] Packet from ('127.0.0.1', 54055): {"CarSpeed": 10.0, "other": {"nested": {"SpeedKmh": 123.45}}}
+[2025-12-05 14:00:54] Wrote sensor value: 10.00
+[2025-12-05 14:00:55] Packet from ('127.0.0.1', 54055): {"CarSpeed": 20.0, "other": {"nested": {"SpeedKmh": 123.45}}}
+[2025-12-05 14:00:55] Wrote sensor value: 20.00
+[2025-12-05 14:00:55] Packet from ('127.0.0.1', 54055): {"CarSpeed": 30.0, "other": {"nested": {"SpeedKmh": 123.45}}}
+[2025-12-05 14:00:55] Wrote sensor value: 30.00
+[2025-12-05 14:00:56] Packet from ('127.0.0.1', 54055): {"CarSpeed": 40.0, "other": {"nested": {"SpeedKmh": 123.45}}}
+[2025-12-05 14:00:56] Wrote sensor value: 40.00
+[2025-12-05 14:38:35] Starting UDP listener on 127.0.0.1:20777
+[2025-12-06 09:17:10] Starting UDP listener on 127.0.0.1:20778
+[2025-12-06 09:17:54] Packet from ('127.0.0.1', 65182): {"CarSpeed": 0.0, "other": {"nested": {"SpeedKmh": 123.45}}}
+[2025-12-06 09:17:54] Wrote sensor value: 0.00
+[2025-12-06 09:17:54] Packet from ('127.0.0.1', 65182): {"CarSpeed": 10.0, "other": {"nested": {"SpeedKmh": 123.45}}}
+[2025-12-06 09:17:54] Wrote sensor value: 10.00
+[2025-12-06 09:17:55] Packet from ('127.0.0.1', 65182): {"CarSpeed": 20.0, "other": {"nested": {"SpeedKmh": 123.45}}}
+[2025-12-06 09:17:55] Wrote sensor value: 20.00
+[2025-12-06 09:17:55] Packet from ('127.0.0.1', 65182): {"CarSpeed": 30.0, "other": {"nested": {"SpeedKmh": 123.45}}}
+[2025-12-06 09:17:55] Wrote sensor value: 30.00
+[2025-12-06 09:17:56] Packet from ('127.0.0.1', 65182): {"CarSpeed": 40.0, "other": {"nested": {"SpeedKmh": 123.45}}}
+[2025-12-06 09:17:56] Wrote sensor value: 40.00
+[2025-12-17 15:36:01] Starting UDP listener on 127.0.0.1:20778
+[2025-12-17 15:38:13] User stop: Sensor manually reset to -1.00

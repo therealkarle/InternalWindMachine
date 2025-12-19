@@ -1,0 +1,38 @@
+# Internal Wind Machine Configuration (v1)
+config_version = 1
+# Set values to 'true' to enable or 'false' to disable.
+
+# Update settings: 'ask' (recommend), 'true' (auto), or 'false' (off).
+auto_update = ask
+
+# Enable or disable 3D wind globally. 
+# This serves as a main switch. If set to false, Center is always used and 3D is ignored.
+use_3d_wind = false
+
+# ###############################################################
+# Advanced Port Configuration
+# ###############################################################
+# NOTE: If use_3d_wind = false, Center is ALWAYS enabled and Left/Right are ALWAYS disabled.
+# These individual toggles only apply when use_3d_wind = true.
+enable_center = true   # (Default Fan)
+enable_left = true
+enable_right = true
+
+# ###############################################################
+# ! ! ! DANGER ZONE ! ! !
+# ###############################################################
+# Only change these if you know exactly what you are doing!
+# Project home: https://github.com/therealkarle/InternalWindMachine
+# Incorrect settings here will cause the program to fail.
+github_repo = therealkarle/InternalWindMachine
+github_api_url = https://api.github.com/repos/therealkarle/InternalWindMachine/contents
+
+# Network Settings
+host = 127.0.0.1
+port = 18082
+
+# SimHub Property Names (Advanced)
+# Change these if your SimHub setup uses different property names.
+prop_center = ShakeItWindPlugin.OutputCenter  # (Default)
+prop_left = ShakeItWindPlugin.OutputLeft
+prop_right = ShakeItWindPlugin.OutputRight

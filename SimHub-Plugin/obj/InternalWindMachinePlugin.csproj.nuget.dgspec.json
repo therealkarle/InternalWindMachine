@@ -1,0 +1,59 @@
+{
+  "format": 1,
+  "restore": {
+    "G:\\Programs\\InternalWindMachine\\SimHub Plugin\\InternalWindMachinePlugin.csproj": {}
+  },
+  "projects": {
+    "G:\\Programs\\InternalWindMachine\\SimHub Plugin\\InternalWindMachinePlugin.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "G:\\Programs\\InternalWindMachine\\SimHub Plugin\\InternalWindMachinePlugin.csproj",
+        "projectName": "InternalWindMachinePlugin",
+        "projectPath": "G:\\Programs\\InternalWindMachine\\SimHub Plugin\\InternalWindMachinePlugin.csproj",
+        "packagesPath": "C:\\Users\\flori\\.nuget\\packages\\",
+        "outputPath": "G:\\Programs\\InternalWindMachine\\SimHub Plugin\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\flori\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net48"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net48": {
+            "targetAlias": "net48",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net48": {
+          "targetAlias": "net48",
+          "dependencies": {
+            "Microsoft.NETFramework.ReferenceAssemblies": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

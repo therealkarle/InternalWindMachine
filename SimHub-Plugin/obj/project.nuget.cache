@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "HcKyfJGz1n0=",
+  "success": true,
+  "projectFilePath": "G:\\Programs\\InternalWindMachine\\SimHub Plugin\\InternalWindMachinePlugin.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\flori\\.nuget\\packages\\microsoft.netframework.referenceassemblies\\1.0.3\\microsoft.netframework.referenceassemblies.1.0.3.nupkg.sha512",
+    "C:\\Users\\flori\\.nuget\\packages\\microsoft.netframework.referenceassemblies.net48\\1.0.3\\microsoft.netframework.referenceassemblies.net48.1.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
