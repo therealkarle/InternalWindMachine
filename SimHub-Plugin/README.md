@@ -46,10 +46,11 @@ The following software must be installed:
 
 ### Option 2: Manual Installation
 1. Close **SimHub**.
-2. Download the `InternalWindMachinePlugin.dll` from Releases.
-3. Copy the `.dll` into your SimHub plugins directory (usually `C:\Program Files (x86)\SimHub`, right-click desktop icon → "Open File Location").
-4. Start **SimHub**.
-5. Enable the plugin in the SimHub settings if not already active.
+2. **[Download the Latest Release on GitHub](https://github.com/therealkarle/InternalWindMachine/releases/latest)**
+3. Download the `InternalWindMachinePlugin.dll` from Releases.
+4. Copy the `.dll` into your SimHub plugins directory (usually `C:\Program Files (x86)\SimHub`, right-click desktop icon → "Open File Location").
+5. Start **SimHub**.
+6. Enable the plugin in the SimHub settings if not already active.
 
 ---
 

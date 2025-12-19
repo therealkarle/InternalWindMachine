@@ -42,7 +42,7 @@ The following software must be installed:
 
 1. Install **SimHub**, **Fan Control**, and **Martin Renner’s Property Server**.
 2. Make sure all required plugins and services are **enabled and running**.
-3. Download or clone this repository.
+3. **[Download the Latest Release on GitHub](https://github.com/therealkarle/InternalWindMachine/releases/latest)** or clone this repository.
 4. Copy **all files from the repository into a single folder** (e.g., `C:\Programs\InternalWindMachine`).
 5. Connect your **PC fan(s)** to your **motherboard fan header(s)**.
 6. Run **`InternalWindMachineStart.bat`** to initialize the folder structure.

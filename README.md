@@ -14,7 +14,10 @@ Control standard PC fans connected directly to your motherboard fan headers usin
 
 ---
 
-## �🚀 Choose Your Version
+
+**[📥 Download the Latest Release](https://github.com/therealkarle/InternalWindMachine/releases/latest)**
+
+## 🚀 Choose Your Version
 
 We offer two ways to run the Internal Wind Machine. Choose the one that fits your setup:
 
