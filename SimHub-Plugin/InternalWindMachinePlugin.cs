@@ -438,6 +438,44 @@ namespace InternalWindMachinePlugin
             advExp.Content = advStack;
             mainStack.Children.Add(advExp);
 
+            // HELP SECTION
+            mainStack.Children.Add(CreateSectionHeader("HELP & DOCUMENTATION"));
+            var helpStack = new StackPanel { Margin = new Thickness(0, 0, 0, 20) };
+            
+            var helpText = new TextBlock { 
+                Text = "Need help setting up the wind machine?", 
+                Foreground = Brushes.White, 
+                Margin = new Thickness(0, 0, 0, 10) 
+            };
+            helpStack.Children.Add(helpText);
+
+            var btnGitHub = new Button { 
+                Content = "📖 Open Documentation (GitHub)", 
+                Padding = new Thickness(10, 8, 10, 8), 
+                Background = new SolidColorBrush(Color.FromRgb(60, 60, 60)), 
+                Foreground = Brushes.White, 
+                Margin = new Thickness(0, 0, 0, 5),
+                HorizontalAlignment = HorizontalAlignment.Left
+            };
+            btnGitHub.Click += (s, e) => {
+                try { Process.Start(new ProcessStartInfo("https://github.com/therealkarle/InternalWindMachine")); } catch { }
+            };
+            helpStack.Children.Add(btnGitHub);
+
+            var btnPluginPage = new Button { 
+                Content = "🔌 Plugin Page & Setup Guide", 
+                Padding = new Thickness(10, 8, 10, 8), 
+                Background = new SolidColorBrush(Color.FromRgb(60, 60, 60)), 
+                Foreground = Brushes.White,
+                HorizontalAlignment = HorizontalAlignment.Left
+            };
+            btnPluginPage.Click += (s, e) => {
+                try { Process.Start(new ProcessStartInfo("https://github.com/therealkarle/InternalWindMachine/tree/main/SimHub-Plugin")); } catch { }
+            };
+            helpStack.Children.Add(btnPluginPage);
+
+            mainStack.Children.Add(helpStack);
+
             return new UserControl { Content = scroll };
         }
 
