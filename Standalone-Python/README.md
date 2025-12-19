@@ -3,7 +3,12 @@
 A software-only solution for a SimRacing wind simulator.  
 It allows standard PC fans (connected directly to a motherboard fan header) to be controlled via live telemetry data from racing simulations — without any external microcontrollers (e.g., Arduino).
 
-The system is based on **SimHub**, **SimHub Property Server Plugin**, **Fan Control**, and costsists of a single **Python Script**.
+The system is based on **SimHub**, the **SimHub Property Server Plugin**, **Fan Control**, and consists of a single **Python Script**.
+
+> [!IMPORTANT]
+> **A native SimHub Plugin is now available!**  
+> It is easier to set up, faster, and integrated directly into the SimHub UI.  
+> **[Check out the SimHub Plugin version here](../SimHub-Plugin)**
 
 ---
 
@@ -71,16 +76,8 @@ The system is controlled via the `config.txt` file. You can adjust:
    - Maximum temperature: `100`
 
 
-   - Recommended curve: a linear line from `0 C° → The Lowest Percentage at which the Fan stops spinning (for me it was 33%)`
-
-
-
-
-
-     to `100 C° → 100 %`
-
-
-     - Ad an adtional Pont at `-1C° → 0% ` to ensure the fan(s) fully power down
+   - Recommended curve: A linear line from `0 °C → (The Lowest % at which the Fan stops spinning, e.g., 33%)` to `100 °C → 100%`.
+   - **Important**: Add an additional point at **-1 °C → 0%** to ensure the fan(s) fully power down.
 
 
    - Adjust the curve to your personal preference if needed.
@@ -95,8 +92,8 @@ The system is controlled via the `config.txt` file. You can adjust:
 
 1. Start **Fan Control** (Recommended: Set it as a startup program, especially if it also manages your system fans).
 2. Start **SimHub**.
-3. Start the Python Script by runnin the provided **`InternalWindMachineStart.bat`**.
-   But at the end of the day you just need to start the `InternalWindMachine.py` howevery you want.
+3. Start the Python script by running the provided **`InternalWindMachineStart.bat`**.
+   (Alternatively, you can just start `InternalWindMachine.py` manually).
 
 4. **Testing**: Enable "Idle Wind" in SimHub. If the fan reacts, you are ready!
 5. **Shutting down**: Type **`stop`** in the console or press **`Ctrl+C`**. This ensures all sensors are reset to **-1** to turn off the fans.

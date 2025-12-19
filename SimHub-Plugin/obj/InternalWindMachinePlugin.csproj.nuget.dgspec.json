@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "G:\\Programs\\InternalWindMachine\\SimHub Plugin\\InternalWindMachinePlugin.csproj": {}
+    "G:\\Programs\\InternalWindMachine\\SimHub-Plugin\\InternalWindMachinePlugin.csproj": {}
   },
   "projects": {
-    "G:\\Programs\\InternalWindMachine\\SimHub Plugin\\InternalWindMachinePlugin.csproj": {
+    "G:\\Programs\\InternalWindMachine\\SimHub-Plugin\\InternalWindMachinePlugin.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\Programs\\InternalWindMachine\\SimHub Plugin\\InternalWindMachinePlugin.csproj",
+        "projectUniqueName": "G:\\Programs\\InternalWindMachine\\SimHub-Plugin\\InternalWindMachinePlugin.csproj",
         "projectName": "InternalWindMachinePlugin",
-        "projectPath": "G:\\Programs\\InternalWindMachine\\SimHub Plugin\\InternalWindMachinePlugin.csproj",
+        "projectPath": "G:\\Programs\\InternalWindMachine\\SimHub-Plugin\\InternalWindMachinePlugin.csproj",
         "packagesPath": "C:\\Users\\flori\\.nuget\\packages\\",
-        "outputPath": "G:\\Programs\\InternalWindMachine\\SimHub Plugin\\obj\\",
+        "outputPath": "G:\\Programs\\InternalWindMachine\\SimHub-Plugin\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\flori\\AppData\\Roaming\\NuGet\\NuGet.Config"

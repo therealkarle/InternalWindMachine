@@ -23,5 +23,8 @@ namespace InternalWindMachinePlugin
         public double PowerL { get; set; } = 100.0;
         public double PowerC { get; set; } = 100.0;
         public double PowerR { get; set; } = 100.0;
+
+        public bool EnableUpdateChecks { get; set; } = true;
+        public bool EnableUpdateNotifications { get; set; } = true;
     }
 }

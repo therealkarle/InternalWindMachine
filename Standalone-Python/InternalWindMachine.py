@@ -14,8 +14,8 @@ os.chdir(os.path.dirname(os.path.abspath(__file__)))
 # Hardcoded defaults (will be overridden by config if present)
 GITHUB_REPO = "therealkarle/InternalWindMachine"
 GITHUB_API_URL = f"https://api.github.com/repos/{GITHUB_REPO}/contents"
-REQUIRED_CONFIG_VERSION = 1
-SCRIPT_VERSION = 2  # Current version of this script
+REQUIRED_CONFIG_VERSION = 2
+SCRIPT_VERSION = 3  # Current version of this script
 
 def get_file_hash(content):
     """Calculates a git-style blob hash for a given content string or bytes."""
@@ -217,7 +217,8 @@ def load_config():
         "prop_left": "ShakeItWindPlugin.OutputLeft",
         "prop_right": "ShakeItWindPlugin.OutputRight",
         "github_repo": "therealkarle/InternalWindMachine",
-        "github_api_url": "https://api.github.com/repos/therealkarle/InternalWindMachine/contents"
+        "github_api_url": "https://api.github.com/repos/therealkarle/InternalWindMachine/contents",
+        "show_plugin_notice": True
     }
     
     config_path = "config.txt"
@@ -271,6 +272,8 @@ def load_config():
                             config["github_repo"] = value
                         elif key == "github_api_url":
                             config["github_api_url"] = value
+                        elif key == "show_plugin_notice":
+                            config["show_plugin_notice"] = (value.lower() == "true")
         except Exception as e:
             print(f"Error reading config.txt: {e}")
 
@@ -377,14 +380,22 @@ def main():
     # Ensure the Sensors directory exists
     os.makedirs("Sensors", exist_ok=True)
     print("\n" + "="*60)
-    print(" INTERNAL WIND MACHINE ACTIVE")
+    print(" INTERNAL WIND MACHINE")
+    print(" by The Real Karle | https://linktr.ee/therealkarle")
     print("="*60)
-    print(f" Mode: {'3D (Multi-Fan)' if config['use_3d_wind'] else 'Mono (Center Fan)'}")
-    print(f" Active Sensors: {'Center ' if config['enable_center'] else ''}{'Left ' if config['enable_left'] else ''}{'Right ' if config['enable_right'] else ''}")
+    print(f" Status: ACTIVE (v{SCRIPT_VERSION})")
+    print(f" Mode:   {'3D (Multi-Fan)' if config['use_3d_wind'] else 'Mono (Center Fan)'}")
+    print(f" Active: {'Center ' if config['enable_center'] else ''}{'Left ' if config['enable_left'] else ''}{'Right ' if config['enable_right'] else ''}")
     print("="*60)
-    print(" Type 'stop' and press ENTER or press Ctrl + C to close safely.")
-    print(" Type 'reset'  and press ENTER to reset sensors to -1.")
-    print(" Type 'update' and press ENTER to manually check for updates.")
+    
+    # Optional Plugin Notice
+    if config.get("show_plugin_notice", True):
+        print(" NEW: A native SimHub Plugin is now available!")
+        print(" Get it here: https://github.com/therealkarle/InternalWindMachine")
+        print("="*60)
+    print(" Type 'stop'   to close safely (or press Ctrl + C).")
+    print(" Type 'reset'  to reset sensors to -1.")
+    print(" Type 'update' to check for updates.")
     print("="*60 + "\n")
 
     t = threading.Thread(target=user_input_listener, daemon=True)

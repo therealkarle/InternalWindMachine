@@ -1,5 +1,5 @@
-# Internal Wind Machine Configuration (v1)
-config_version = 1
+# Internal Wind Machine Configuration (v2)
+config_version = 2
 # Set values to 'true' to enable or 'false' to disable.
 
 # Update settings: 'ask' (recommend), 'true' (auto), or 'false' (off).
@@ -8,6 +8,9 @@ auto_update = ask
 # Enable or disable 3D wind globally. 
 # This serves as a main switch. If set to false, Center is always used and 3D is ignored.
 use_3d_wind = false
+
+# Show notice about the new SimHub Plugin on startup. (Default: true)
+show_plugin_notice = true
 
 # ###############################################################
 # Advanced Port Configuration

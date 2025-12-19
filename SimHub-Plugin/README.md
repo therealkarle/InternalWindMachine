@@ -12,6 +12,7 @@ The system is integrated directly into SimHub and interfaces with **Fan Control*
 - **Native SimHub Integration**: Seamlessly integrated into SimHub.
 - **No Extra Software**: Replaces the standalone Python script and the Property Server plugin.
 - **Live Status Monitor**: Real-time visual feedback of all fan outputs directly in the SimHub UI.
+- **Auto-Update Check**: Automatically notifies you in the UI when a new plugin version is available.
 - **Dynamic 3D Wind Support**: Individual control for Left, Center, and Right channels.
 - **Individual Fan Overrides**: Manually control each fan with a slider while keeping others on telemetry
 - **Expert Mode**: Full control over SimHub property bindings (for advanced users).

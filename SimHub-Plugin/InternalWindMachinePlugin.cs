@@ -9,6 +9,8 @@ using System.Diagnostics;
 using System.Reflection;
 using System.Linq;
 using System.Windows.Documents;
+using System.Net;
+using System.Threading.Tasks;
 using SimHub.Plugins;
 using GameReaderCommon;
 using Newtonsoft.Json;
@@ -22,6 +24,7 @@ namespace InternalWindMachinePlugin
     {
         public InternalWindMachineSettings Settings { get; set; } = new InternalWindMachineSettings();
         public PluginManager PluginManager { get; set; }
+        public static readonly string PluginVersion = "2.0.0";
 
         public System.Drawing.Image Icon => GraphicsHelper.LoadIcon();
 
@@ -34,12 +37,107 @@ namespace InternalWindMachinePlugin
         private CheckBox _cbOverL, _cbOverC, _cbOverR;
         private Slider _slL, _slC, _slR;
         private TextBlock _txtValL, _txtValC, _txtValR;
-        
+        private Button _btnUpdate;
         private TextBox _tbDir, _propC, _propL, _propR;
+        private CheckBox _cbUpdate, _cbNotify;
         
         private DispatcherTimer _uiTimer;
         private int _resetAllState = 0;
         private int _resetPropsState = 0;
+
+        private string _remoteUrl;
+
+        private void CheckForUpdateAsync()
+        {
+            if (!Settings.EnableUpdateChecks) return;
+
+            Task.Run(() => {
+                try {
+                    using (var wc = new WebClient()) {
+                        wc.Headers.Add("user-agent", "SimHub-InternalWindMachine-Plugin");
+                        string json = wc.DownloadString("https://raw.githubusercontent.com/therealkarle/InternalWindMachine/main/version.json");
+                        var data = JsonConvert.DeserializeObject<dynamic>(json);
+                        string remoteVersion = (string)data.plugin;
+                        _remoteUrl = (string)data.plugin_url;
+
+                        if (remoteVersion != null && remoteVersion != PluginVersion) {
+                            Application.Current.Dispatcher.Invoke(() => {
+                                if (_btnUpdate != null) {
+                                    _btnUpdate.Content = $"INSTALL UPDATE (v{remoteVersion})";
+                                    _btnUpdate.Background = Brushes.DarkGreen;
+                                    _btnUpdate.Visibility = Visibility.Visible;
+                                }
+
+                                // Show Windows Notification
+                                if (Settings.EnableUpdateNotifications) {
+                                    try {
+                                        var tray = new System.Windows.Forms.NotifyIcon() {
+                                            Icon = System.Drawing.SystemIcons.Information,
+                                            Visible = true,
+                                            BalloonTipTitle = "Internal Wind Machine",
+                                            BalloonTipText = $"A new update (v{remoteVersion}) is available! Open SimHub settings to install."
+                                        };
+                                        tray.ShowBalloonTip(5000);
+                                        Task.Delay(10000).ContinueWith(_ => { tray.Dispose(); });
+                                    } catch { }
+                                }
+                            });
+                        }
+                    }
+                } catch { }
+            });
+        }
+
+        private void InstallUpdate()
+        {
+            if (string.IsNullOrEmpty(_remoteUrl)) return;
+
+            var result = MessageBox.Show(
+                "Do you want to download and install the update now?\n\n" +
+                "Note: The update will be prepared and activated on the next SimHub restart.",
+                "Internal Wind Machine Update", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            if (result != MessageBoxResult.Yes) return;
+
+            Task.Run(() => {
+                try {
+                    string currentDllPath = Assembly.GetExecutingAssembly().Location;
+                    string parentFolder = Path.GetDirectoryName(currentDllPath);
+                    string fileName = Path.GetFileName(currentDllPath);
+                    string newDllPath = currentDllPath + ".new";
+                    string oldDllPath = currentDllPath + ".old";
+
+                    using (var wc = new WebClient()) {
+                        wc.Headers.Add("user-agent", "SimHub-InternalWindMachine-Plugin");
+                        wc.DownloadFile(_remoteUrl, newDllPath);
+                    }
+
+                    if (File.Exists(newDllPath)) {
+                        // The Rename Dance
+                        if (File.Exists(oldDllPath)) File.Delete(oldDllPath);
+                        File.Move(currentDllPath, oldDllPath);
+                        File.Move(newDllPath, currentDllPath);
+
+                        Application.Current.Dispatcher.Invoke(() => {
+                            MessageBox.Show(
+                                "Update successfully prepared!\n\n" +
+                                "Please restart SimHub to activate the new version.",
+                                "Update Successful", MessageBoxButton.OK, MessageBoxImage.Information);
+                            if (_btnUpdate != null) {
+                                _btnUpdate.Content = "Update Prepared (Restart SimHub)";
+                                _btnUpdate.IsEnabled = false;
+                                _btnUpdate.Background = Brushes.Gray;
+                            }
+                        });
+                    }
+                }
+                catch (Exception ex) {
+                    Application.Current.Dispatcher.Invoke(() => {
+                        MessageBox.Show($"Update failed: {ex.Message}\n\nMake sure SimHub is running as Administrator.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    });
+                }
+            });
+        }
 
         private string SettingsPath => Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "PluginsData", "InternalWindMachinePlugin.json");
 
@@ -48,6 +146,7 @@ namespace InternalWindMachinePlugin
             this.PluginManager = pluginManager;
             LoadSettings();
             UpdateSensorDirectory();
+            CheckForUpdateAsync();
 
             _uiTimer = new DispatcherTimer { Interval = TimeSpan.FromMilliseconds(50) };
             _uiTimer.Tick += (s, e) => {
@@ -181,7 +280,23 @@ namespace InternalWindMachinePlugin
             var hl = new Hyperlink(new Run("The Real Karle")) { NavigateUri = new Uri("https://linktr.ee/therealkarle"), Foreground = Brushes.Cyan, TextDecorations = null };
             hl.RequestNavigate += (s, e) => { try { Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri)); } catch { } e.Handled = true; };
             subHeader.Inlines.Add(hl);
+            subHeader.Inlines.Add(new Run($" | v{PluginVersion}"));
             headerStack.Children.Add(subHeader);
+
+            _btnUpdate = new Button { 
+                Content = "Checking for Updates...", 
+                Background = Brushes.SlateGray, 
+                Foreground = Brushes.White,
+                Padding = new Thickness(10, 5, 10, 5),
+                Margin = new Thickness(0, 10, 0, 0),
+                Visibility = Visibility.Collapsed,
+                HorizontalAlignment = HorizontalAlignment.Left
+            };
+            _btnUpdate.Click += (s, e) => {
+                InstallUpdate();
+            };
+            headerStack.Children.Add(_btnUpdate);
+
             headerBorder.Child = headerStack;
             mainStack.Children.Add(headerBorder);
 
@@ -267,6 +382,18 @@ namespace InternalWindMachinePlugin
                 Settings.Use3DWind = false; ResetSpecificSensor("WindPercentageLeft.sensor"); ResetSpecificSensor("WindPercentageRight.sensor");
                 UpdateFanVisuals(); SaveSettings(); 
             };
+            
+            advStack.Children.Add(new TextBlock { Text = "Update Preferences:", FontWeight = FontWeights.Bold, Foreground = Brushes.White, Margin = new Thickness(0, 10, 0, 5) });
+            _cbUpdate = CreateStyledCheckBox("Check for updates on startup", Settings.EnableUpdateChecks);
+            _cbUpdate.Checked += (s, e) => { Settings.EnableUpdateChecks = true; SaveSettings(); };
+            _cbUpdate.Unchecked += (s, e) => { Settings.EnableUpdateChecks = false; SaveSettings(); };
+            advStack.Children.Add(_cbUpdate);
+
+            _cbNotify = CreateStyledCheckBox("Show Windows notifications for updates", Settings.EnableUpdateNotifications);
+            _cbNotify.Checked += (s, e) => { Settings.EnableUpdateNotifications = true; SaveSettings(); };
+            _cbNotify.Unchecked += (s, e) => { Settings.EnableUpdateNotifications = false; SaveSettings(); };
+            _cbNotify.Margin = new Thickness(20, 0, 0, 10);
+            advStack.Children.Add(_cbNotify);
             
             UpdateFanVisuals(); // Initial call
 
@@ -379,6 +506,8 @@ namespace InternalWindMachinePlugin
                 if (_slL != null) _slL.Value = Settings.PowerL;
                 if (_slC != null) _slC.Value = Settings.PowerC;
                 if (_slR != null) _slR.Value = Settings.PowerR;
+                if (_cbUpdate != null) _cbUpdate.IsChecked = Settings.EnableUpdateChecks;
+                if (_cbNotify != null) _cbNotify.IsChecked = Settings.EnableUpdateNotifications;
                 UpdateFanVisuals();
             } catch { }
         }
