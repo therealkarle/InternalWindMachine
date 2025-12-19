@@ -1,0 +1,27 @@
+# SimHub Plugin (C#)
+bin/
+obj/
+*.user
+*.suo
+.vs/
+*.dll
+*.exe
+
+# Python
+__pycache__/
+*.py[cod]
+config.txt
+Sensors/
+InternalWindMachineOutput/
+
+# Plugin Data
+PluginsData/
+
+# Project Internal Rules (Not for GitHub)
+.project_rules.md
+
+# Old Scripts & Junk
+AlteScrips/
+InternalWindMachine.code-workspace
+*.sensor
+*.tmp
