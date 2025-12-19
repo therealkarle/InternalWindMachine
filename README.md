@@ -6,7 +6,7 @@ Control standard PC fans connected directly to your motherboard fan headers usin
 ---
 
 
-![Internal Wind Machine](./Media/InternalWindMachineImage.jpg)
+<img src="./Media/InternalWindMachineImage.jpg" alt="Internal Wind Machine" width="600">
 
 **[▶️ Watch the Wind Machine in Action (Video)](./Media/WindMachineInUseVideo.mp4)**
 
@@ -24,7 +24,7 @@ We offer two ways to run the Internal Wind Machine. Choose the one that fits you
 - ✅ **Live UI**: Monitor and control your fans directly in SimHub.
 - ✅ **Overrides**: Manual power control for each fan individually.
 - ✅ **Professional**: Custom icon, sidebar integration, and auto-reset features.
-[SimHub Plugin UI](./Media/SimHubPluginUi.png)
+<img src="./Media/SimHubPluginUi.png" alt="SimHub Plugin UI" width="700">
 
 ### 2. [Standalone Python Version](./Standalone-Python)
 **The flexible way.** A lightweight Python script for users who prefer a standalone solution.

@@ -82,7 +82,7 @@ The system is controlled via the `config.txt` file. You can adjust:
 
    - Adjust the curve to your personal preference if needed.
 
-![Fan Curve Example](../Media/FanCurve.png)
+<img src="../Media/FanCurve.png" alt="Fan Curve Example" width="500">
 
 5. Assign the fan(s) to the corresponding control curve(s).
 

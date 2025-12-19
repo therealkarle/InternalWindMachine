@@ -5,7 +5,7 @@ It allows standard PC fans (connected directly to a motherboard fan header) to b
 
 The system is integrated directly into SimHub and interfaces with **Fan Control**.
 
-[SimHub Plugin UI](./Media/SimHubPluginUi.png)
+<img src="../Media/SimHubPluginUi.png" alt="SimHub Plugin UI" width="700">
 
 ---
 
@@ -69,7 +69,7 @@ Unlike the standalone version, everything is configured via the SimHub interface
    - **Recommended curve**: A linear line from `0 °C → (The Lowest % at which the Fan stops spinning, e.g., 33%)` to `100 °C → 100%`.
    - **Important**: Add a point at **-1 °C → 0%** to ensure the fan powers down when you close SimHub.
 
-![Fan Curve Example](../Media/FanCurve.png)
+<img src="../Media/FanCurve.png" alt="Fan Curve Example" width="500">
 
 5. Assign the fan(s) to the corresponding control curve(s).
 
