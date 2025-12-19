@@ -6,15 +6,6 @@ Control standard PC fans connected directly to your motherboard fan headers usin
 ---
 
 
-<img src="./Media/InternalWindMachineImage.jpg" alt="Internal Wind Machine" width="600">
-
-**[▶️ Watch the Wind Machine in Action (Video)](./Media/WindMachineInUseVideo.mp4)**
-
-
-
----
-
-
 **[📥 Download the Latest Release](https://github.com/therealkarle/InternalWindMachine/releases/latest)**
 
 ## 🚀 Choose Your Version
@@ -37,7 +28,15 @@ We offer two ways to run the Internal Wind Machine. Choose the one that fits you
 
 ---
 
-## 🛠️ Requirements & Setup
+## � Preview
+
+<img src="./Media/InternalWindMachineImage.jpg" alt="Internal Wind Machine" width="600">
+
+**[▶️ Watch the Wind Machine in Action (Video)](./Media/WindMachineInUseVideo.mp4)**
+
+---
+
+## �🛠️ Requirements & Setup
 Both versions require [**Fan Control**](https://getfancontrol.com/) to communicate with your motherboard's fan headers. Detailed instructions for each version can be found in their respective folders.
 
 ---
