@@ -5,6 +5,7 @@
     <AssemblyName>InternalWindMachinePlugin</AssemblyName>
     <RootNamespace>InternalWindMachinePlugin</RootNamespace>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
   </PropertyGroup>
 

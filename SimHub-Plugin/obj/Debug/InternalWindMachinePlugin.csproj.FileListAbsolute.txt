@@ -1,4 +1,8 @@
+G:\Programs\InternalWindMachine\SimHub-Plugin\bin\Debug\InternalWindMachinePlugin.dll
+G:\Programs\InternalWindMachine\SimHub-Plugin\bin\Debug\InternalWindMachinePlugin.pdb
 G:\Programs\InternalWindMachine\SimHub-Plugin\obj\Debug\InternalWindMachinePlugin.csproj.AssemblyReference.cache
 G:\Programs\InternalWindMachine\SimHub-Plugin\obj\Debug\InternalWindMachinePlugin.GeneratedMSBuildEditorConfig.editorconfig
 G:\Programs\InternalWindMachine\SimHub-Plugin\obj\Debug\InternalWindMachinePlugin.csproj.CoreCompileInputs.cache
 G:\Programs\InternalWindMachine\SimHub-Plugin\obj\Debug\InternalWindMachinePlugin.sourcelink.json
+G:\Programs\InternalWindMachine\SimHub-Plugin\obj\Debug\InternalWindMachinePlugin.dll
+G:\Programs\InternalWindMachine\SimHub-Plugin\obj\Debug\InternalWindMachinePlugin.pdb
