@@ -5,6 +5,8 @@ It allows standard PC fans (connected directly to a motherboard fan header) to b
 
 The system is integrated directly into SimHub and interfaces with **Fan Control**.
 
+[SimHub Plugin UI](./Media/SimHubPluginUi.png)
+
 ---
 
 ## 🌟 Features

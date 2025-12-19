@@ -5,13 +5,16 @@ Control standard PC fans connected directly to your motherboard fan headers usin
 
 ---
 
-## 📺 Preview & Hardware
-This project allows you to build a high-performance wind simulator for just the cost of a few PC fans. For the best experience, I recommend using a 3D-printable nozzle.
-[**Download my 3D-printable Nozzle (Thingiverse)**](https://www.thingiverse.com/thing:6845650)
+
+![Internal Wind Machine](./Media/InternalWindMachineImage.jpg)
+
+**[▶️ Watch the Wind Machine in Action (Video)](./Media/WindMachineInUseVideo.mp4)**
+
+
 
 ---
 
-## 🚀 Choose Your Version
+## �🚀 Choose Your Version
 
 We offer two ways to run the Internal Wind Machine. Choose the one that fits your setup:
 
@@ -21,6 +24,7 @@ We offer two ways to run the Internal Wind Machine. Choose the one that fits you
 - ✅ **Live UI**: Monitor and control your fans directly in SimHub.
 - ✅ **Overrides**: Manual power control for each fan individually.
 - ✅ **Professional**: Custom icon, sidebar integration, and auto-reset features.
+[SimHub Plugin UI](./Media/SimHubPluginUi.png)
 
 ### 2. [Standalone Python Version](./Standalone-Python)
 **The flexible way.** A lightweight Python script for users who prefer a standalone solution.
@@ -36,7 +40,7 @@ Both versions require [**Fan Control**](https://getfancontrol.com/) to communica
 ---
 
 ## 📢 Stay Connected
-I'm active on social media and often show the Wind Machine in action:
+
 
 - [**Linktree (All Links)**](https://linktr.ee/therealkarle)
 - [Youtube](https://www.youtube.com/@therealkarle)
