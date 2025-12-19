@@ -394,6 +394,69 @@ namespace InternalWindMachinePlugin
             _cbNotify.Unchecked += (s, e) => { Settings.EnableUpdateNotifications = false; SaveSettings(); };
             _cbNotify.Margin = new Thickness(20, 0, 0, 10);
             advStack.Children.Add(_cbNotify);
+
+            // Manual Update Controls
+            var updateButtonsGrid = new UniformGrid { Columns = 2, Margin = new Thickness(0, 5, 0, 10) };
+            
+            var btnCheckUpdate = new Button { 
+                Content = "🔍 Check for Updates Now", 
+                Padding = new Thickness(10, 8, 10, 8), 
+                Background = new SolidColorBrush(Color.FromRgb(40, 80, 40)), 
+                Foreground = Brushes.White,
+                Margin = new Thickness(0, 0, 5, 0)
+            };
+            btnCheckUpdate.Click += (s, e) => {
+                btnCheckUpdate.IsEnabled = false;
+                btnCheckUpdate.Content = "Checking...";
+                CheckForUpdateAsync();
+                Task.Delay(2000).ContinueWith(_ => {
+                    Application.Current.Dispatcher.Invoke(() => {
+                        btnCheckUpdate.Content = "🔍 Check for Updates Now";
+                        btnCheckUpdate.IsEnabled = true;
+                    });
+                });
+            };
+            updateButtonsGrid.Children.Add(btnCheckUpdate);
+
+            var btnReinstall = new Button { 
+                Content = "🔄 Force Reinstall", 
+                Padding = new Thickness(10, 8, 10, 8), 
+                Background = new SolidColorBrush(Color.FromRgb(80, 60, 40)), 
+                Foreground = Brushes.White,
+                Margin = new Thickness(5, 0, 0, 0)
+            };
+            btnReinstall.Click += (s, e) => {
+                var result = MessageBox.Show(
+                    "This will download and reinstall the plugin from GitHub, even if you're on the latest version.\n\n" +
+                    "Your settings will be preserved.\n\nContinue?",
+                    "Force Reinstall",
+                    MessageBoxButton.YesNo,
+                    MessageBoxImage.Question);
+                
+                if (result == MessageBoxResult.Yes)
+                {
+                    if (string.IsNullOrEmpty(_remoteUrl)) {
+                         Task.Run(() => {
+                            try {
+                                using (var wc = new WebClient()) {
+                                    wc.Headers.Add("user-agent", "SimHub-InternalWindMachine-Plugin");
+                                    string json = wc.DownloadString("https://raw.githubusercontent.com/therealkarle/InternalWindMachine/main/version.json");
+                                    var data = JsonConvert.DeserializeObject<dynamic>(json);
+                                    _remoteUrl = (string)data.plugin_url;
+                                    InstallUpdate();
+                                }
+                            } catch (Exception ex) {
+                                Application.Current.Dispatcher.Invoke(() => MessageBox.Show("Failed to fetch update URL: " + ex.Message));
+                            }
+                        });
+                    } else {
+                        InstallUpdate();
+                    }
+                }
+            };
+            updateButtonsGrid.Children.Add(btnReinstall);
+            
+            advStack.Children.Add(updateButtonsGrid);
             
             UpdateFanVisuals(); // Initial call
 
