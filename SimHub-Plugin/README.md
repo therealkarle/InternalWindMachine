@@ -41,7 +41,7 @@ The following software must be installed:
 ### Option 1: Automated Installer (Recommended)
 1. Download the latest release from [**GitHub Releases**](https://github.com/therealkarle/InternalWindMachine/releases/latest).
 2. Extract the downloaded ZIP file.
-3. Run `InternalWindMachineInstaller.exe`.
+3. Run `InternalWindMachineInstaller.exe` or just drag the Pluginn dll into the simhub root folder.
 4. Follow the on-screen instructions (Admin rights will be requested automatically).
 
 ### Option 2: Manual Installation
